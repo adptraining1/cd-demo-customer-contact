@@ -1,7 +1,35 @@
 <configuration>
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-			<customFields>{"appname":"customer-contact"}</customFields>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <mdc/>
+                <arguments/>
+                <message/>
+                <loggerName/>
+                <version/>
+                <threadName/>
+                <logLevel/>
+                <callerData/>
+                <tags/>
+                <pattern>
+                    <pattern>
+                        {
+                        "timestamp": "%date{ISO8601}",
+                        "bounded_context": "mploed-customer-contact"
+                        }
+                    </pattern>
+                </pattern>
+                <stackTrace>
+                    <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                        <maxDepthPerThrowable>30</maxDepthPerThrowable>
+                        <maxLength>2048</maxLength>
+                        <shortenedClassNameLength>20</shortenedClassNameLength>
+                        <exclude>sun\.reflect\..*\.invoke.*</exclude>
+                        <exclude>net\.sf\.cglib\.proxy\.MethodProxy\.invoke</exclude>
+                        <rootCauseFirst>true</rootCauseFirst>
+                    </throwableConverter>
+                </stackTrace>
+            </providers>
         </encoder>
     </appender>
     <logger name="jsonLogger" additivity="false" level="DEBUG">

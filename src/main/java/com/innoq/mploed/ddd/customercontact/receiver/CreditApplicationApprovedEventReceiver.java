@@ -11,7 +11,7 @@ import static net.logstash.logback.argument.StructuredArguments.*;
 
 
 @Component
-public class  CreditApplicationApprovedEventReceiver {
+public class CreditApplicationApprovedEventReceiver {
     private AddressRepository addressRepository;
     private static final Logger LOGGER = LoggerFactory.getLogger(CreditApplicationApprovedEventReceiver.class);
 
