@@ -27,8 +27,10 @@ node {
          "SonarQube analysis": {
             def scannerHome = tool 'SonarQube Scanner 3.0';
             withSonarQubeEnv('Local SonarQube') {
-            sh "${scannerHome}/bin/sonar-scanner"
+               sh "${scannerHome}/bin/sonar-scanner"
+            }
          }
       )   
    }
+     
 }
