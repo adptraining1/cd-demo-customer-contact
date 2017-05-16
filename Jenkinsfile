@@ -20,5 +20,13 @@ node {
       sh "/home/jenkins/cf login -a https://api.run.pivotal.io -u ${CF_USER} -p ${CF_PASS} -s development"
       sh "/home/jenkins/cf push"
    }
+   
+   stage('SonarQube analysis') {
+    // requires SonarQube Scanner 2.8+
+    def scannerHome = tool 'SonarQube Scanner 2.8';
+    withSonarQubeEnv('http://46.101.150.250:9000/sonar') {
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
 
 }
