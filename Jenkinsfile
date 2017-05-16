@@ -23,8 +23,8 @@ node {
    
    stage('SonarQube analysis') {
     // requires SonarQube Scanner 2.8+
-    def scannerHome = tool 'SonarQube Scanner 2.8';
-    withSonarQubeEnv('http://46.101.150.250:9000/sonar') {
+    def scannerHome = tool 'SonarQube Scanner 3.0';
+    withSonarQubeEnv('Local SonarQube') {
       sh "${scannerHome}/bin/sonar-scanner"
     }
   }
