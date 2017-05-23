@@ -3,7 +3,7 @@ node {
    stage 'Checkout'
 
    // Get some code from a GitHub repository
-   git url: 'https://github.com/mploed/cd-demo-customer-contact.git'
+   git url: 'https://github.com/adptraining1/cd-demo-customer-contact.git'
 
    // Get the maven tool.
    // ** NOTE: This 'M3' maven tool must be configured
