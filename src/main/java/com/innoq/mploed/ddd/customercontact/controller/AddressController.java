@@ -23,4 +23,9 @@ public class AddressController {
         return addressRepository.findAll();
     }
 
+    @RequestMapping(path = "/adresses", method = RequestMethod.DELETE)
+    public void deleteEverything() {
+        addressRepository.deleteAll();
+    }
+
 }
