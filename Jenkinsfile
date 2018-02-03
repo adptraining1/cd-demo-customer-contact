@@ -3,7 +3,7 @@ node {
    stage 'Checkout'
 
    // Get some code from a GitHub repository
-   git url: 'https://github.com/mploed/cd-demo-customer-contact.git'
+   git url: 'https://github.com/adptraining1/cd-demo-customer-contact.git'
 
    // Get the maven tool.
    // ** NOTE: This 'M3' maven tool must be configured
@@ -15,6 +15,7 @@ node {
    // Run the maven build
    sh "${mvnHome}/bin/mvn -Dmaven.test.failure.ignore clean package"
    //step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+   
    stage 'Deploy and Sonar'
 
    parallel (
