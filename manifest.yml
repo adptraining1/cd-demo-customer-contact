@@ -7,4 +7,3 @@ applications:
   services:
       - mysql-customer-contact-db
       - redis-pubsub
-      - logstash-drain
